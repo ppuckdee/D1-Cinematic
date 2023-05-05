@@ -45,6 +45,12 @@
             create() {
                 this.add.text(20,10," Let your imagination run free by building your dream house.\n Explore your creativity.\n Never create any limitations and boundaries in your ideas.\n ");
                 this.input.on('pointerdown', () => this.scene.start('end'));
+                let thing = this.add.circle(300, 300, 100, 0xff0000);
+                this.add.tween({
+                    targets: thing,
+                    scale: {from: 0, to: 1},
+                    duration: 1000
+                });
             }
         }
 
