@@ -11,9 +11,20 @@
             constructor() {
                 super('intro');
             }
+            preload () {
+                this.load.image("house", "noun-house-1745674.png");
+                this.load.audio('title', [ 'sweet.m4a' ]);
+            }
             create() {
-                this.add.text(10, 10, "Click to begin.");
+                let t = this.add.text(10, 10, "Click to begin.");
                 this.input.on('pointerdown', () => this.scene.start('body'));
+                this.add.rectangle(200,200,40,30, 0xff8888);
+                this.add.rectangle(800,200,40,30, 0xff4444);
+                let h = this.add.sprite(470, 270, "house");
+                h.scale = 0.3;
+
+                this.sound.add('title', { loop: true });
+
             }
         }
 
