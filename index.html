@@ -13,6 +13,7 @@
             }
             preload () {
                 this.load.image("house", "noun-house-1745674.png");
+                this.load.image("logo", "House Builder.png");
                 this.load.audio('title', [ 'sweet.m4a' ]);
             }
             create() {
@@ -22,8 +23,17 @@
                 this.add.rectangle(800,200,40,30, 0xff4444);
                 let h = this.add.sprite(470, 270, "house");
                 h.scale = 0.3;
+                let l = this.add.sprite(490, 300, "logo");
+                h.scale = 0.3;
 
                 this.sound.add('title', { loop: true });
+
+                this.cameras.main.once('camerafadeincomplete', function (camera) {
+                    camera.fadeOut(6000);
+        });
+
+        this.cameras.main.fadeIn(6000);
+
 
             }
         }
@@ -33,7 +43,7 @@
                 super('body');
             }
             create() {
-                this.add.text(10,10,"I am the Body scene.");
+                this.add.text(20,10," Let your imagination run free by building your dream house.\n Explore your creativity.\n Never create any limitations and boundaries in your ideas.\n ");
                 this.input.on('pointerdown', () => this.scene.start('end'));
             }
         }
@@ -43,7 +53,7 @@
                 super('end');
             }
             create() {
-                this.add.text(10,10,"I am the end scene.");
+                this.add.text(10,10," Main Menu\n Settings\n Help");
                 this.input.on('pointerdown', () => this.scene.start('intro'));
             }
         }
